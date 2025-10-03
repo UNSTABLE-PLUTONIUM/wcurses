@@ -1,0 +1,13 @@
+this file only has guides for compiling on gcc as of now
+
+for a shared object:
+
+gcc -fPIC -I include/ src/*.c -c; gcc -shared *.o -o libwcurses.so
+
+for a static object:
+
+gcc -I include src/*.c -c; ar rcs libwcurses.a *.o
+
+cleanup and move the header to the current directory
+
+rm *.o; mv include/wcurses.h .
