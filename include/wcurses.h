@@ -12,6 +12,7 @@ extern void wcInit(void);
 extern void wcTerminate(void);
 extern void wcEchoInput(bool);
 extern void wcBufferInput(bool);
+extern void wcShowCursor(bool);
 
 extern void wcurses_internal__SIGINT_handler(int);
 

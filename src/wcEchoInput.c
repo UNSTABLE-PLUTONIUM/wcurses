@@ -4,7 +4,7 @@ void wcEchoInput(bool input) {
 	struct termios TerminalSettings;
 	tcgetattr(STDIN_FILENO, &TerminalSettings);
 
-	if (input == true) {
+	if (input) {
 		TerminalSettings.c_lflag |= ECHO;
 	}
 

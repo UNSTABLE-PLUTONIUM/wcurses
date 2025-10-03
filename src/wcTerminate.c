@@ -6,4 +6,5 @@ void wcTerminate(void) {
 
 	wcEchoInput(true);
 	wcBufferInput(true);
+	wcShowCursor(true);
 }
