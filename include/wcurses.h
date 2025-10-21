@@ -3,29 +3,29 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 #include <signal.h>
 #include <unistd.h>
 #include <termios.h>
 #include <sys/ioctl.h>
 
-#define ERROR -1
-#define KEY_ESCAPE 1000
-#define KEY_UP 1001
-#define KEY_DOWN 1002
-#define KEY_RIGHT 1003
-#define KEY_LEFT 1004
+typedef struct {
+	char *buffer;
+	int byte_offset;
+	int size_y;
+	int size_x;
+	int size;
+} plane;
+
+extern plane stdplane;
 
 extern void wcInit(void);
 extern void wcTerminate(void);
-extern void wcEchoInput(bool);
-extern void wcBufferInput(bool);
-extern void wcShowCursor(bool);
-extern void wcGotoXY(int, int);
-extern void wcGetMaxXY(int*, int*);
-extern void wcRefresh(void);
-extern int wcGetch();
-extern int wcGetche();
+extern void wcDisplay(void);
+extern void wcPutchr(char chr);
+extern void wcPutstr(char *str);
+extern void wcMoveto(int y, int x);
 
 extern void wcurses_internal__SIGINT_handler(int);
 
